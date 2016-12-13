@@ -1,25 +1,45 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx',
-  output: {
-    path: __dirname,
-    filename: './public/bundle.js'
-  },
-  resolve: {
-    root: __dirname,
-    alias: {
+    entry: [
+        'script!jquery/dist/jquery.min.js',
+        'script!tether/dist/js/tether.min.js',
+        'script!bootstrap/dist/js/bootstrap.min.js',
+        './app/app.jsx'
+    ],
+    externals: {
+        jquery: 'jQuery'
     },
-    extensions: ['', '.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
+    plugins: [
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery': 'jquery'
+        })
+    ],
+    output: {
+        path: __dirname,
+        filename: './public/bundle.js'
+    },
+    resolve: {
+        root: __dirname,
+        alias: {
+            Main: 'app/components/Main.jsx',
+            ListComponent: 'app/components/ListComponent.jsx',
+            FilterComponent: 'app/components/FilterComponent.jsx',
+            SortComponent: 'app/components/SortComponent.jsx',
+            GetHotelData: 'app/components/GetHotelData.jsx'
+
         },
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/
-      }
-    ]
-  }
+        extensions: ['', '.js', '.jsx']
+    },
+    module: {
+        loaders: [{
+            loader: 'babel-loader',
+            query: {
+                presets: ['react', 'es2015']
+            },
+            test: /\.jsx?$/,
+            exclude: /(node_modules|bower_components)/
+        }]
+    }
 };

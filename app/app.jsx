@@ -1,7 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Main = require('Main');
+
+require('style!css!bootstrap/dist/css/bootstrap.min.css')
 
 ReactDOM.render(
-  <h1>Boilerplate app!</h1>,
-  document.getElementById('app')
+  <Main/>,
+  document.getElementById('app') 
 );
