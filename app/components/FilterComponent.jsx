@@ -5,9 +5,7 @@ var FilterComponent = React.createClass({
         var filterCarPark = this.refs.filterCarPark.checked;
         var filterGym = this.refs.filterGym.checked;
         var filterPool = this.refs.filterPool.checked;
-
         this.props.onFilter(filterCarPark, filterGym, filterPool);
-
     },
     render: function(){
         return (

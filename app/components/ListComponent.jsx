@@ -3,8 +3,8 @@ var hotels = require('json!app/data/Hotels.json');
 
 var ListComponent = React.createClass({
     render: function(){
-        var hotelList = hotels.map(function(hotel){
-            return <div className="card hotel">
+        var hotelList = hotels.map(function(hotel, index){
+            return <div key={index} className="card hotel">
                 <div className="row">
                     <div className="col-xs-2">
                         <span className="lnr lnr-home"></span>

@@ -19882,10 +19882,10 @@
 	    displayName: 'ListComponent',
 
 	    render: function render() {
-	        var hotelList = hotels.map(function (hotel) {
+	        var hotelList = hotels.map(function (hotel, index) {
 	            return React.createElement(
 	                'div',
-	                { className: 'card hotel' },
+	                { key: index, className: 'card hotel' },
 	                React.createElement(
 	                    'div',
 	                    { className: 'row' },
@@ -19955,7 +19955,6 @@
 	        var filterCarPark = this.refs.filterCarPark.checked;
 	        var filterGym = this.refs.filterGym.checked;
 	        var filterPool = this.refs.filterPool.checked;
-
 	        this.props.onFilter(filterCarPark, filterGym, filterPool);
 	    },
 	    render: function render() {
@@ -20003,7 +20002,7 @@
 	            { className: "form-group sortComponent" },
 	            React.createElement(
 	                "label",
-	                { "for": "sortComponent__select" },
+	                { htmlFor: "sortComponent__select" },
 	                "Sort by:"
 	            ),
 	            React.createElement(
