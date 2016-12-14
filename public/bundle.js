@@ -19823,6 +19823,23 @@
 	var Main = React.createClass({
 	    displayName: 'Main',
 
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            filterCarPark: false,
+	            filterGym: false,
+	            filterPool: false
+	        };
+	    },
+
+	    handleFilter: function handleFilter() {
+	        this.setState({
+	            filterCarPark: filterCarPark,
+	            filterGym: filterGym,
+	            filterPool: filterPool
+	        });
+	    },
+
 	    render: function render() {
 	        return React.createElement(
 	            'div',
@@ -19833,7 +19850,7 @@
 	                React.createElement(
 	                    'div',
 	                    { className: 'col-xs-12' },
-	                    React.createElement(FilterComponent, null),
+	                    React.createElement(FilterComponent, { onFilter: this.handleFilter }),
 	                    React.createElement(SortComponent, null)
 	                )
 	            ),
@@ -19859,15 +19876,12 @@
 	'use strict';
 
 	var React = __webpack_require__(9);
-	var data = __webpack_require__(175);
+	var hotels = __webpack_require__(175);
 
 	var ListComponent = React.createClass({
 	    displayName: 'ListComponent',
 
 	    render: function render() {
-
-	        var hotels = data;
-
 	        var hotelList = hotels.map(function (hotel) {
 	            return React.createElement(
 	                'div',
@@ -19916,7 +19930,6 @@
 	                )
 	            );
 	        });
-
 	        return React.createElement(
 	            'div',
 	            null,
@@ -19938,6 +19951,13 @@
 	var FilterComponent = React.createClass({
 	    displayName: "FilterComponent",
 
+	    handleFilter: function handleFilter() {
+	        var filterCarPark = this.refs.filterCarPark.checked;
+	        var filterGym = this.refs.filterGym.checked;
+	        var filterPool = this.refs.filterPool.checked;
+
+	        this.props.onFilter(filterCarPark, filterGym, filterPool);
+	    },
 	    render: function render() {
 	        return React.createElement(
 	            "div",
@@ -19945,19 +19965,19 @@
 	            React.createElement(
 	                "label",
 	                { className: "form-check-inline" },
-	                React.createElement("input", { className: "form-check-input", type: "checkbox", id: "filterComponent__option--car-park", value: "carpark" }),
+	                React.createElement("input", { className: "form-check-input", type: "checkbox", ref: "filterCarPark", id: "filterComponent__option--car-park", value: "carpark", onChange: this.handleFilter }),
 	                " Car Park"
 	            ),
 	            React.createElement(
 	                "label",
 	                { className: "form-check-inline" },
-	                React.createElement("input", { className: "form-check-input", type: "checkbox", id: "filterComponent__option--gym", value: "gym" }),
+	                React.createElement("input", { className: "form-check-input", type: "checkbox", ref: "filterGym", id: "filterComponent__option--gym", value: "gym", onChange: this.handleFilter }),
 	                " Gym"
 	            ),
 	            React.createElement(
 	                "label",
 	                { className: "form-check-inline" },
-	                React.createElement("input", { className: "form-check-input", type: "checkbox", id: "filterComponent__option--pool", value: "pool" }),
+	                React.createElement("input", { className: "form-check-input", type: "checkbox", ref: "filterPool", id: "filterComponent__option--pool", value: "pool", onChange: this.handleFilter }),
 	                " Pool"
 	            )
 	        );

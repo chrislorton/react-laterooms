@@ -1,11 +1,8 @@
 var React = require('react');
-var data = require('json!app/data/Hotels.json');
+var hotels = require('json!app/data/Hotels.json');
 
 var ListComponent = React.createClass({
     render: function(){
-
-        var hotels = data;
-
         var hotelList = hotels.map(function(hotel){
             return <div className="card hotel">
                 <div className="row">
@@ -26,7 +23,6 @@ var ListComponent = React.createClass({
                 </div>
             </div>
         })
-
         return (
             <div> 
                 {hotelList}
