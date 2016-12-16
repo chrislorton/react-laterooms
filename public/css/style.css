@@ -1,0 +1,16 @@
+.card {
+    padding: 20px;
+}
+.lnr {
+    font-size: 40px;
+    position: relative;
+}
+h3.hotelName {
+    margin-top: 8px;
+}
+.hotelDetails {
+    margin-top: 20px;
+}
+.hotelDetails p {
+    margin-bottom: 0;
+}

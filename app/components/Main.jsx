@@ -1,5 +1,6 @@
 var React = require('react');
-var ListComponent = require('ListComponent');
+var HotelList = require('HotelList');
+var hotels = require('json!app/data/Hotels.json');
 var FilterComponent = require('FilterComponent');
 var SortComponent = require('SortComponent');
 
@@ -7,21 +8,59 @@ var Main = React.createClass({
 
     getInitialState: function(){
         return {
-            filterCarPark: false,
-            filterGym: false,
-            filterPool: false
+            hotels,
+            filterCarPark: true
         };
     },
 
-    handleFilter: function(){
+    // handleCarParkFilter: function(){
+    //     this.setState({
+    //         filterCarPark: filterCarPark,
+    //     })
+    // },  
+
+    // handleFilter: function(filterCarPark, filterGym, filterPool){
+
+    //     if(filterCarPark){
+    //         this.setState({
+    //             filterCarPark: filterCarPark,
+    //         })
+    //     } else {
+    //          this.setState({
+    //             filterCarPark: false,
+    //         })
+    //     }
+    //     if(filterGym){
+    //         this.setState({
+    //             filterGym: filterGym,
+    //         })
+            
+    //     } else {
+    //          this.setState({
+    //             filterGym: false,
+    //         })
+    //     }
+    //     if(filterPool){
+    //         this.setState({
+    //             filterPool: filterPool,
+    //         })
+    //     } else {
+    //          this.setState({
+    //             filterPool: false,
+    //         })
+    //     }
+    // },
+
+    handleFilter: function(filterCarPark){
         this.setState({
-            filterCarPark: filterCarPark,
-            filterGym: filterGym,
-            filterPool: filterPool
+            filterCarPark: filterCarPark
         })
     },
 
     render: function(){
+
+        var {hotels} = this.state;
+
         return (
             <div className="container">
                 <div className="row">
@@ -32,7 +71,7 @@ var Main = React.createClass({
                 </div>
                 <div className="row">
                     <div className="col-xs-12">
-                        <ListComponent/>
+                        <HotelList hotels={hotels}/>
                     </div>
                 </div>
             </div>

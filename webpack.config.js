@@ -24,11 +24,14 @@ module.exports = {
         root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
-            ListComponent: 'app/components/ListComponent.jsx',
+            HotelList: 'app/components/HotelList.jsx',
+            Hotel: 'app/components/Hotel.jsx',
             FilterComponent: 'app/components/FilterComponent.jsx',
             SortComponent: 'app/components/SortComponent.jsx',
-            GetHotelData: 'app/components/GetHotelData.jsx'
-
+            GetHotelData: 'app/components/GetHotelData.jsx',
+            reducers: 'app/reducers/reducers.jsx',
+            actions: 'app/actions/actions.jsx',
+            configureStore: 'app/store/configureStore.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },
