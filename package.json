@@ -1,13 +1,13 @@
 {
-    "name": "boilerplate",
+    "name": "react-laterooms",
     "version": "1.0.0",
-    "description": "Simple react app",
+    "description": "",
     "main": "index.js",
     "scripts": {
         "test": "karma start",
         "start": "node server.js"
     },
-    "author": "Andrew Mead",
+    "author": "",
     "license": "MIT",
     "dependencies": {
         "express": "^4.13.4",
